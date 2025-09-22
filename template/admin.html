@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZIAQ-TECH Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23007bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='4' width='16' height='16' rx='2' ry='2'/><path d='M4 10h1M4 14h1M20 10h-1M20 14h-1M8 4v1M16 4v1M8 20v-1M16 20v-1'/></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#6F42C1',
+                        'secondary': '#C0C0C0',
+                        'accent': '#E0D6E8',
+                        'highlight': '#FFFFFF'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    
+    <!-- Login Page -->
+    <div id="login-page" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-purple-800">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-md mx-4">
+            <!-- Logo -->
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-microchip text-primary text-2xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-primary dark:text-white">IZIAQ-TECH</h1>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-300">Admin Dashboard</h2>
+                <p class="text-gray-500 dark:text-gray-400">Sign in to manage your store</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Username</label>
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-3 top-3 text-gray-400"></i>
+                        <input type="text" id="username" required class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base" placeholder="Enter your username">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Password</label>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i>
+                        <input type="password" id="password" required class="w-full pl-10 pr-12 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base" placeholder="Enter your password">
+                        <button type="button" id="toggle-password" class="absolute right-3 top-3 text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
+                    </label>
+                    <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="w-full bg-primary hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                </button>
+            </form>
+
+            <!-- Demo Credentials -->
+            <div class="mt-6 p-4 bg-accent dark:bg-gray-700 rounded-lg">
+                <h4 class="font-semibold text-primary dark:text-white mb-2">Demo Credentials:</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Username: <span class="font-mono">admin</span></p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Password: <span class="font-mono">admin123</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="hidden min-h-screen">
+        <!-- Header -->
+        <header class="bg-primary shadow-lg">
+            <nav class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-microchip text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-white">IZIAQ-TECH</h1>
+                            <p class="text-xs text-accent">Admin Dashboard</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Header Actions -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Dark Mode Toggle -->
+                        <button id="dark-mode-toggle" class="text-white hover:text-accent transition-colors">
+                            <i class="fas fa-moon text-xl"></i>
+                        </button>
+                        
+                        <!-- Notifications -->
+                        <div class="relative">
+                            <button class="text-white hover:text-accent transition-colors">
+                                <i class="fas fa-bell text-xl"></i>
+                                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">3</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Admin Profile -->
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-primary"></i>
+                            </div>
+                            <span class="text-white font-medium">Admin</span>
+                            <button id="logout-btn" class="text-white hover:text-accent transition-colors">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside class="w-64 bg-white dark:bg-gray-800 shadow-lg min-h-screen">
+                <nav class="p-6">
+                    <ul class="space-y-2">
+                        <li>
+                            <button class="sidebar-btn active w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="dashboard">
+                                <i class="fas fa-tachometer-alt mr-3"></i>Dashboard
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="products">
+                                <i class="fas fa-boxes mr-3"></i>Products
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="categories">
+                                <i class="fas fa-tags mr-3"></i>Categories
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="orders">
+                                <i class="fas fa-shopping-cart mr-3"></i>Orders
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="customers">
+                                <i class="fas fa-users mr-3"></i>Customers
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="analytics">
+                                <i class="fas fa-chart-bar mr-3"></i>Analytics
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="settings">
+                                <i class="fas fa-cog mr-3"></i>Settings
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-6">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" class="section">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-primary dark:text-white mb-2">Dashboard Overview</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Welcome back! Here's what's happening with your store.</p>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400">Total Products</p>
+                                    <p class="text-3xl font-bold text-primary dark:text-white" id="total-products">142</p>
+                                </div>
+                                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-boxes text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-green-600">
+                                <i class="fas fa-arrow-up mr-1"></i>
+                                <span class="text-sm">+12% from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400">Total Orders</p>
+                                    <p class="text-3xl font-bold text-primary dark:text-white">89</p>
+                                </div>
+                                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-green-600">
+                                <i class="fas fa-arrow-up mr-1"></i>
+                                <span class="text-sm">+8% from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400">Revenue</p>
+                                    <p class="text-3xl font-bold text-primary dark:text-white">₦2.4M</p>
+                                </div>
+                                <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-naira-sign text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-green-600">
+                                <i class="fas fa-arrow-up mr-1"></i>
+                                <span class="text-sm">+15% from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-600 dark:text-gray-400">Customers</p>
+                                    <p class="text-3xl font-bold text-primary dark:text-white">1,245</p>
+                                </div>
+                                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center text-green-600">
+                                <i class="fas fa-arrow-up mr-1"></i>
+                                <span class="text-sm">+23% from last month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Recent Orders</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">Order #1001</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Gaming Laptop - ₦890,000</p>
+                                    </div>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Completed</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">Order #1002</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Custom PC - ₦1,200,000</p>
+                                    </div>
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Processing</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">Order #1003</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Repair Service - ₦49,000</p>
+                                    </div>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">In Progress</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Low Stock Alert</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">Gaming Mouse</p>
+                                        <p class="text-sm text-red-600">Only 2 units left</p>
+                                    </div>
+                                    <button class="bg-red-500 text-white px-3 py-1 rounded text-sm">Restock</button>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">USB Cables</p>
+                                        <p class="text-sm text-yellow-600">5 units left</p>
+                                    </div>
+                                    <button class="bg-yellow-500 text-white px-3 py-1 rounded text-sm">Restock</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div id="products-section" class="section hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-primary dark:text-white mb-2">Products Management</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Manage your product inventory</p>
+                        </div>
+                        <button id="add-product-btn" class="bg-primary hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Add Product
+                        </button>
+                    </div>
+
+                    <!-- Product Filters -->
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Search Products</label>
+                                <input type="text" id="product-search" placeholder="Search by name..." class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
+                                <select id="category-filter" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                    <option value="">All Categories</option>
+                                    <option value="laptops">Laptops</option>
+                                    <option value="desktops">Desktops</option>
+                                    <option value="accessories">Accessories</option>
+                                    <option value="parts">Computer Parts</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Stock Status</label>
+                                <select id="stock-filter" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                    <option value="">All Stock</option>
+                                    <option value="in-stock">In Stock</option>
+                                    <option value="low-stock">Low Stock</option>
+                                    <option value="out-of-stock">Out of Stock</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button id="clear-filters" class="w-full bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                    Clear Filters
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Table -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50 dark:bg-gray-700">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Product</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Category</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Price</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Stock</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="products-table-body" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <!-- Products will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories Section -->
+                <div id="categories-section" class="section hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-primary dark:text-white mb-2">Categories Management</h2>
+                            <p class="text-gray-600 dark:text-gray-400">Organize your products into categories</p>
+                        </div>
+                        <button id="add-category-btn" class="bg-primary hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Add Category
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="categories-grid">
+                        <!-- Categories will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Orders Section -->
+                <div id="orders-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-primary dark:text-white mb-2">Orders Management</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Track and manage customer orders</p>
+                    </div>
+
+                    <!-- Order Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold text-primary dark:text-white">Total Orders</h3>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">89</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold text-green-600">Completed</h3>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">67</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold text-yellow-600">Processing</h3>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">15</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold text-red-600">Pending</h3>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">7</p>
+                        </div>
+                    </div>
+
+                    <!-- Orders Table -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50 dark:bg-gray-700">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Order ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Customer</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Products</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Total</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <!-- Orders will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customers Section -->
+                <div id="customers-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-primary dark:text-white mb-2">Customers Management</h2>
+                        <p class="text-gray-600 dark:text-gray-400">View and manage customer information</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50 dark:bg-gray-700">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Customer</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Email</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Phone</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Orders</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Total Spent</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customers-table-body" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <!-- Customers will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="analytics-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-primary dark:text-white mb-2">Analytics</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Insights and performance metrics</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Sales Overview</h3>
+                            <div class="h-64 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                                <p class="text-gray-500 dark:text-gray-400">Sales Chart Placeholder</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Popular Products</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700 dark:text-gray-300">Gaming Laptops</span>
+                                    <span class="text-primary font-semibold">45 sales</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700 dark:text-gray-300">Custom PCs</span>
+                                    <span class="text-primary font-semibold">32 sales</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-700 dark:text-gray-300">Accessories</span>
+                                    <span class="text-primary font-semibold">28 sales</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settings-section" class="section hidden">
+                    <div class="mb-6">
+                        <h2 class="text-3xl font-bold text-primary dark:text-white mb-2">Settings</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Configure your store settings</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Store Information</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Store Name</label>
+                                    <input type="text" value="IZIAQ-TECH SOLUTIONS" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                                    <input type="email" value="iziaqe@yahoo.com" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Phone</label>
+                                    <input type="tel" value="+234 806 7785 543" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                </div>
+                                <button type="submit" class="bg-primary hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                    Save Changes
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                            <h3 class="text-xl font-bold text-primary dark:text-white mb-4">Security</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Current Password</label>
+                                    <input type="password" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">New Password</label>
+                                    <input type="password" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Confirm Password</label>
+                                    <input type="password" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                </div>
+                                <button type="submit" class="bg-primary hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                    Update Password
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="add-product-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-primary dark:text-white">Add New Product</h3>
+                <button id="close-product-modal" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form id="product-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Product Name *</label>
+                        <input type="text" id="product-name" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category *</label>
+                        <select id="product-category" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                            <option value="">Select Category</option>
+                            <option value="laptops">Laptops</option>
+                            <option value="desktops">Desktops</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="parts">Computer Parts</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description *</label>
+                    <textarea id="product-description" required rows="4" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base resize-none"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Price (₦) *</label>
+                        <input type="number" id="product-price" required min="0" step="0.01" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Stock Quantity *</label>
+                        <input type="number" id="product-stock" required min="0" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Product Image</label>
+                    <div class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center">
+                        <input type="file" id="product-image" accept="image/*" class="hidden">
+                        <div id="image-preview" class="hidden">
+                            <img id="preview-img" src="" alt="Preview" class="mx-auto max-h-40 rounded-lg">
+                            <button type="button" id="remove-image" class="mt-2 text-red-500 hover:text-red-700">Remove Image</button>
+                        </div>
+                        <div id="image-upload" class="cursor-pointer" onclick="document.getElementById('product-image').click()">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-600 dark:text-gray-400">Click to upload image</p>
+                            <p class="text-sm text-gray-500">PNG, JPG up to 5MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end space-x-4">
+                    <button type="button" id="cancel-product" class="px-6 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-6 py-2 bg-primary hover:bg-purple-700 text-white rounded-lg transition-colors">
+                        Add Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection and toggle
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Admin Dashboard Management
+        class AdminDashboard {
+            constructor() {
+                this.currentUser = null;
+                this.products = [
+                    {
+                        id: 1,
+                        name: 'ASUS ROG Strix Gaming Laptop',
+                        category: 'laptops',
+                        description: 'High-performance gaming laptop with RTX 4060',
+                        price: 890000,
+                        stock: 15,
+                        image: 'laptop1.jpg',
+                        status: 'active'
+                    },
+                    {
+                        id: 2,
+                        name: 'Custom Gaming PC',
+                        category: 'desktops',
+                        description: 'Powerful custom-built gaming desktop',
+                        price: 1200000,
+                        stock: 8,
+                        image: 'desktop1.jpg',
+                        status: 'active'
+                    },
+                    {
+                        id: 3,
+                        name: 'Gaming Mouse RGB',
+                        category: 'accessories',
+                        description: 'Professional gaming mouse with RGB lighting',
+                        price: 25000,
+                        stock: 2,
+                        image: 'mouse1.jpg',
+                        status: 'active'
+                    }
+                ];
+
+                this.categories = [
+                    { id: 1, name: 'Laptops', description: 'Portable computers and laptops', productCount: 45 },
+                    { id: 2, name: 'Desktops', description: 'Desktop computers and workstations', productCount: 32 },
+                    { id: 3, name: 'Accessories', description: 'Computer accessories and peripherals', productCount: 78 },
+                    { id: 4, name: 'Computer Parts', description: 'Hardware components and parts', productCount: 156 }
+                ];
+
+                this.orders = [
+                    {
+                        id: 1001,
+                        customer: 'John Doe',
+                        email: 'john@example.com',
+                        products: 'Gaming Laptop',
+                        total: 890000,
+                        status: 'completed',
+                        date: '2024-12-15'
+                    },
+                    {
+                        id: 1002,
+                        customer: 'Jane Smith',
+                        email: 'jane@example.com',
+                        products: 'Custom PC',
+                        total: 1200000,
+                        status: 'processing',
+                        date: '2024-12-16'
+                    }
+                ];
+
+                this.customers = [
+                    {
+                        id: 1,
+                        name: 'John Doe',
+                        email: 'john@example.com',
+                        phone: '+234 801 234 5678',
+                        orders: 3,
+                        totalSpent: 2500000
+                    },
+                    {
+                        id: 2,
+                        name: 'Jane Smith',
+                        email: 'jane@example.com',
+                        phone: '+234 802 345 6789',
+                        orders: 1,
+                        totalSpent: 1200000
+                    }
+                ];
+
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.loadStoredData();
+            }
+
+            setupEventListeners() {
+                // Login form
+                document.getElementById('login-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleLogin();
+                });
+
+                // Password toggle
+                document.getElementById('toggle-password').addEventListener('click', () => {
+                    const passwordInput = document.getElementById('password');
+                    const icon = document.querySelector('#toggle-password i');
+                    
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+
+                // Sidebar navigation
+                document.querySelectorAll('.sidebar-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const section = e.target.dataset.section;
+                        this.showSection(section);
+                        this.updateActiveNavigation(e.target);
+                    });
+                });
+
+                // Logout
+                document.getElementById('logout-btn').addEventListener('click', () => {
+                    this.handleLogout();
+                });
+
+                // Dark mode toggle
+                document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    const icon = document.querySelector('#dark-mode-toggle i');
+                    if (document.documentElement.classList.contains('dark')) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    } else {
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
+                    }
+                });
+
+                // Product management
+                document.getElementById('add-product-btn').addEventListener('click', () => {
+                    this.showAddProductModal();
+                });
+
+                document.getElementById('close-product-modal').addEventListener('click', () => {
+                    this.hideAddProductModal();
+                });
+
+                document.getElementById('cancel-product').addEventListener('click', () => {
+                    this.hideAddProductModal();
+                });
+
+                document.getElementById('product-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleAddProduct();
+                });
+
+                // Image upload
+                document.getElementById('product-image').addEventListener('change', (e) => {
+                    this.handleImageUpload(e);
+                });
+
+                document.getElementById('remove-image').addEventListener('click', () => {
+                    this.removeImage();
+                });
+
+                // Product search and filters
+                document.getElementById('product-search').addEventListener('input', () => {
+                    this.filterProducts();
+                });
+
+                document.getElementById('category-filter').addEventListener('change', () => {
+                    this.filterProducts();
+                });
+
+                document.getElementById('stock-filter').addEventListener('change', () => {
+                    this.filterProducts();
+                });
+
+                document.getElementById('clear-filters').addEventListener('click', () => {
+                    this.clearFilters();
+                });
+
+                // Category management
+                document.getElementById('add-category-btn').addEventListener('click', () => {
+                    this.showAddCategoryModal();
+                });
+            }
+
+            handleLogin() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // Simple authentication (in real app, this would be server-side)
+                if (username === 'admin' && password === 'admin123') {
+                    this.currentUser = { username: 'admin', role: 'administrator' };
+                    this.showDashboard();
+                    this.showSuccessMessage('Login successful! Welcome to IZIAQ-TECH Admin Dashboard.');
+                } else {
+                    this.showErrorMessage('Invalid username or password. Please try again.');
+                }
+            }
+
+            handleLogout() {
+                this.showConfirmModal('Are you sure you want to logout?', () => {
+                    this.currentUser = null;
+                    document.getElementById('admin-dashboard').classList.add('hidden');
+                    document.getElementById('login-page').classList.remove('hidden');
+                    document.getElementById('login-form').reset();
+                    this.showSuccessMessage('Successfully logged out.');
+                });
+            }
+
+            showDashboard() {
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                this.showSection('dashboard');
+                this.populateData();
+            }
+
+            showSection(sectionName) {
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+
+                // Show selected section
+                const targetSection = document.getElementById(`${sectionName}-section`);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
+
+                // Load section-specific data
+                switch(sectionName) {
+                    case 'products':
+                        this.renderProductsTable();
+                        break;
+                    case 'categories':
+                        this.renderCategoriesGrid();
+                        break;
+                    case 'orders':
+                        this.renderOrdersTable();
+                        break;
+                    case 'customers':
+                        this.renderCustomersTable();
+                        break;
+                }
+            }
+
+            updateActiveNavigation(activeBtn) {
+                document.querySelectorAll('.sidebar-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('text-gray-700', 'dark:text-gray-300', 'hover:bg-gray-100', 'dark:hover:bg-gray-700');
+                });
+
+                activeBtn.classList.add('active', 'bg-primary', 'text-white');
+                activeBtn.classList.remove('text-gray-700', 'dark:text-gray-300', 'hover:bg-gray-100', 'dark:hover:bg-gray-700');
+            }
+
+            populateData() {
+                // Update total products count
+                document.getElementById('total-products').textContent = this.products.length;
+            }
+
+            renderProductsTable() {
+                const tbody = document.getElementById('products-table-body');
+                tbody.innerHTML = '';
+
+                this.products.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-br from-primary to-purple-700 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-laptop text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-900 dark:text-white">${product.name}</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">ID: ${product.id}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-full">
+                                ${product.category}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ₦${product.price.toLocaleString()}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ${product.stock}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            ${this.getStockStatusBadge(product.stock)}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <div class="flex space-x-2">
+                                <button onclick="adminDashboard.editProduct(${product.id})" class="text-primary hover:text-purple-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="adminDashboard.deleteProduct(${product.id})" class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            getStockStatusBadge(stock) {
+                if (stock === 0) {
+                    return '<span class="px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">Out of Stock</span>';
+                } else if (stock <= 5) {
+                    return '<span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Low Stock</span>';
+                } else {
+                    return '<span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">In Stock</span>';
+                }
+            }
+
+            renderCategoriesGrid() {
+                const grid = document.getElementById('categories-grid');
+                grid.innerHTML = '';
+
+                this.categories.forEach(category => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg';
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                                <i class="fas fa-folder text-white text-xl"></i>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button onclick="adminDashboard.editCategory(${category.id})" class="text-primary hover:text-purple-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="adminDashboard.deleteCategory(${category.id})" class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary dark:text-white mb-2">${category.name}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">${category.description}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">${category.productCount} products</span>
+                            <button class="bg-primary hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                                View Products
+                            </button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+
+            renderOrdersTable() {
+                const tbody = document.getElementById('orders-table-body');
+                tbody.innerHTML = '';
+
+                this.orders.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                            #${order.id}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900 dark:text-white">${order.customer}</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">${order.email}</div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ${order.products}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ₦${order.total.toLocaleString()}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            ${this.getOrderStatusBadge(order.status)}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ${order.date}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <div class="flex space-x-2">
+                                <button onclick="adminDashboard.viewOrder(${order.id})" class="text-primary hover:text-purple-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="adminDashboard.editOrder(${order.id})" class="text-primary hover:text-purple-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            getOrderStatusBadge(status) {
+                const statusClasses = {
+                    'completed': 'bg-green-100 text-green-800',
+                    'processing': 'bg-yellow-100 text-yellow-800',
+                    'pending': 'bg-red-100 text-red-800',
+                    'shipped': 'bg-blue-100 text-blue-800'
+                };
+
+                return `<span class="px-2 py-1 text-xs font-medium ${statusClasses[status]} rounded-full">${status.charAt(0).toUpperCase() + status.slice(1)}</span>`;
+            }
+
+            renderCustomersTable() {
+                const tbody = document.getElementById('customers-table-body');
+                tbody.innerHTML = '';
+
+                this.customers.forEach(customer => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold">${customer.name.charAt(0)}</span>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-900 dark:text-white">${customer.name}</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">ID: ${customer.id}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ${customer.email}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ${customer.phone}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ${customer.orders}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ₦${customer.totalSpent.toLocaleString()}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <div class="flex space-x-2">
+                                <button onclick="adminDashboard.viewCustomer(${customer.id})" class="text-primary hover:text-purple-700">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button onclick="adminDashboard.editCustomer(${customer.id})" class="text-primary hover:text-purple-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            showAddProductModal() {
+                document.getElementById('add-product-modal').classList.remove('hidden');
+                document.getElementById('product-form').reset();
+                this.removeImage();
+            }
+
+            hideAddProductModal() {
+                document.getElementById('add-product-modal').classList.add('hidden');
+            }
+
+            handleAddProduct() {
+                const formData = new FormData(document.getElementById('product-form'));
+                const productData = {
+                    id: this.products.length + 1,
+                    name: document.getElementById('product-name').value,
+                    category: document.getElementById('product-category').value,
+                    description: document.getElementById('product-description').value,
+                    price: parseFloat(document.getElementById('product-price').value),
+                    stock: parseInt(document.getElementById('product-stock').value),
+                    image: 'default.jpg',
+                    status: 'active'
+                };
+
+                this.products.push(productData);
+                this.saveData();
+                this.hideAddProductModal();
+                this.renderProductsTable();
+                this.showSuccessMessage('Product added successfully!');
+            }
+
+            handleImageUpload(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        document.getElementById('preview-img').src = e.target.result;
+                        document.getElementById('image-preview').classList.remove('hidden');
+                        document.getElementById('image-upload').classList.add('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            removeImage() {
+                document.getElementById('product-image').value = '';
+                document.getElementById('image-preview').classList.add('hidden');
+                document.getElementById('image-upload').classList.remove('hidden');
+            }
+
+            filterProducts() {
+                const searchTerm = document.getElementById('product-search').value.toLowerCase();
+                const categoryFilter = document.getElementById('category-filter').value;
+                const stockFilter = document.getElementById('stock-filter').value;
+
+                let filteredProducts = this.products.filter(product => {
+                    const matchesSearch = product.name.toLowerCase().includes(searchTerm);
+                    const matchesCategory = !categoryFilter || product.category === categoryFilter;
+                    
+                    let matchesStock = true;
+                    if (stockFilter === 'in-stock') {
+                        matchesStock = product.stock > 5;
+                    } else if (stockFilter === 'low-stock') {
+                        matchesStock = product.stock > 0 && product.stock <= 5;
+                    } else if (stockFilter === 'out-of-stock') {
+                        matchesStock = product.stock === 0;
+                    }
+
+                    return matchesSearch && matchesCategory && matchesStock;
+                });
+
+                this.renderFilteredProducts(filteredProducts);
+            }
+
+            renderFilteredProducts(products) {
+                const tbody = document.getElementById('products-table-body');
+                tbody.innerHTML = '';
+
+                products.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-gradient-to-br from-primary to-purple-700 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-laptop text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-900 dark:text-white">${product.name}</div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">ID: ${product.id}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-full">
+                                ${product.category}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ₦${product.price.toLocaleString()}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                            ${product.stock}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            ${this.getStockStatusBadge(product.stock)}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <div class="flex space-x-2">
+                                <button onclick="adminDashboard.editProduct(${product.id})" class="text-primary hover:text-purple-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button onclick="adminDashboard.deleteProduct(${product.id})" class="text-red-600 hover:text-red-800">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            clearFilters() {
+                document.getElementById('product-search').value = '';
+                document.getElementById('category-filter').value = '';
+                document.getElementById('stock-filter').value = '';
+                this.renderProductsTable();
+            }
+
+            editProduct(id) {
+                const product = this.products.find(p => p.id === id);
+                if (product) {
+                    // Populate edit form with product data
+                    document.getElementById('product-name').value = product.name;
+                    document.getElementById('product-category').value = product.category;
+                    document.getElementById('product-description').value = product.description;
+                    document.getElementById('product-price').value = product.price;
+                    document.getElementById('product-stock').value = product.stock;
+                    
+                    this.showAddProductModal();
+                    this.showSuccessMessage(`Editing product: ${product.name}`);
+                }
+            }
+
+            deleteProduct(id) {
+                const product = this.products.find(p => p.id === id);
+                if (product) {
+                    this.showConfirmModal(`Are you sure you want to delete "${product.name}"?`, () => {
+                        this.products = this.products.filter(p => p.id !== id);
+                        this.saveData();
+                        this.renderProductsTable();
+                        this.showSuccessMessage('Product deleted successfully!');
+                    });
+                }
+            }
+
+            showAddCategoryModal() {
+                this.showSuccessMessage('Add Category feature coming soon!');
+            }
+
+            editCategory(id) {
+                this.showSuccessMessage('Edit Category feature coming soon!');
+            }
+
+            deleteCategory(id) {
+                this.showSuccessMessage('Delete Category feature coming soon!');
+            }
+
+            viewOrder(id) {
+                this.showSuccessMessage('View Order feature coming soon!');
+            }
+
+            editOrder(id) {
+                this.showSuccessMessage('Edit Order feature coming soon!');
+            }
+
+            viewCustomer(id) {
+                this.showSuccessMessage('View Customer feature coming soon!');
+            }
+
+            editCustomer(id) {
+                this.showSuccessMessage('Edit Customer feature coming soon!');
+            }
+
+            saveData() {
+                localStorage.setItem('iziaq_admin_products', JSON.stringify(this.products));
+                localStorage.setItem('iziaq_admin_categories', JSON.stringify(this.categories));
+                localStorage.setItem('iziaq_admin_orders', JSON.stringify(this.orders));
+                localStorage.setItem('iziaq_admin_customers', JSON.stringify(this.customers));
+            }
+
+            loadStoredData() {
+                const storedProducts = localStorage.getItem('iziaq_admin_products');
+                const storedCategories = localStorage.getItem('iziaq_admin_categories');
+                const storedOrders = localStorage.getItem('iziaq_admin_orders');
+                const storedCustomers = localStorage.getItem('iziaq_admin_customers');
+
+                if (storedProducts) this.products = JSON.parse(storedProducts);
+                if (storedCategories) this.categories = JSON.parse(storedCategories);
+                if (storedOrders) this.orders = JSON.parse(storedOrders);
+                if (storedCustomers) this.customers = JSON.parse(storedCustomers);
+            }
+
+            showSuccessMessage(message) {
+                this.showNotification(message, 'success');
+            }
+
+            showErrorMessage(message) {
+                this.showNotification(message, 'error');
+            }
+
+            showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm ${
+                    type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+                }`;
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} mr-2"></i>
+                        <span>${message}</span>
+                        <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
+
+            showConfirmModal(message, onConfirm) {
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                modal.innerHTML = `
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Confirm Action</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">${message}</p>
+                        <div class="flex justify-end space-x-3">
+                            <button class="cancel-btn px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors">Cancel</button>
+                            <button class="confirm-btn px-4 py-2 bg-red-500 text-white hover:bg-red-600 rounded transition-colors">Confirm</button>
+                        </div>
+                    </div>
+                `;
+
+                modal.querySelector('.cancel-btn').addEventListener('click', () => modal.remove());
+                modal.querySelector('.confirm-btn').addEventListener('click', () => {
+                    modal.remove();
+                    onConfirm();
+                });
+
+                document.body.appendChild(modal);
+            }
+        }
+
+        // Initialize the admin dashboard
+        const adminDashboard = new AdminDashboard();
+    </script>
+</body>
+</html>

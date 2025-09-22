@@ -1,0 +1,207 @@
+{%extends 'HEADER_TAIL.html'%}
+{% block content%}
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-br from-accent to-secondary dark:from-gray-800 dark:to-gray-700 py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h2 class="text-5xl lg:text-6xl font-bold text-primary dark:text-white mb-6 leading-tight">
+                        Your Tech Solutions Partner
+                    </h2>
+                    <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                        From cutting-edge computers to expert repairs, IZIAQ-TECH delivers innovation and reliability for all your technology needs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="{%url 'products'%}" class="bg-primary hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-shopping-cart mr-2"></i>Shop Now
+                        </a>
+                        <a href="{%url 'service'%}" class="border-2 border-primary text-primary dark:text-white dark:border-white hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
+                            <i class="fas fa-tools mr-2"></i>Repair Services
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        
+                        <div class="w-80 h-80 bg-secondary dark:bg-gray-600 rounded-2xl flex items-center justify-center relative shadow-2xl">
+                            <i class="fas fa-desktop text-8xl text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-4xl font-bold text-primary dark:text-white mb-8">Why Choose IZIAQ-TECH?</h3>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-12">
+                With years of expertise in computer technology, we combine innovation with reliability to deliver exceptional products and services that keep you ahead of the curve.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <i class="fas fa-award text-4xl text-primary mb-4"></i>
+                    <h4 class="text-xl font-semibold text-primary dark:text-white mb-3">Expert Quality</h4>
+                    <p class="text-gray-700 dark:text-gray-300">Premium products and professional services backed by industry expertise.</p>
+                </div>
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <i class="fas fa-clock text-4xl text-primary mb-4"></i>
+                    <h4 class="text-xl font-semibold text-primary dark:text-white mb-3">Fast Service</h4>
+                    <p class="text-gray-700 dark:text-gray-300">Quick turnaround times for repairs and prompt delivery of products.</p>
+                </div>
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <i class="fas fa-shield-alt text-4xl text-primary mb-4"></i>
+                    <h4 class="text-xl font-semibold text-primary dark:text-white mb-3">Warranty Protection</h4>
+                    <p class="text-gray-700 dark:text-gray-300">Comprehensive warranties and support for peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products/Services -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center text-primary dark:text-white mb-12">Featured Products & Services</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-primary to-purple-700 flex items-center justify-center">
+                        <i class="fas fa-laptop text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-primary dark:text-white mb-2">Gaming Laptops</h4>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">High-performance gaming laptops for enthusiasts</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white mb-4">From ₦890009</p>
+                        <button class="w-full bg-primary hover:bg-purple-700 text-white py-2 rounded-lg transition-colors duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-secondary to-gray-400 flex items-center justify-center">
+                        <i class="fas fa-desktop text-6xl text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-primary dark:text-white mb-2">Custom PCs</h4>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Build your dream computer with our experts</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white mb-4">From ₦1,000299</p>
+                        <button class="w-full bg-primary hover:bg-purple-700 text-white py-2 rounded-lg transition-colors duration-300">
+                            Configure Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-accent to-purple-300 flex items-center justify-center">
+                        <i class="fas fa-wrench text-6xl text-primary"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-primary dark:text-white mb-2">Hardware Repair</h4>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Professional diagnosis and repair services</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white mb-4">From ₦49000</p>
+                        <button class="w-full bg-primary hover:bg-purple-700 text-white py-2 rounded-lg transition-colors duration-300">
+                            Book Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-primary to-purple-800 flex items-center justify-center">
+                        <i class="fas fa-cog text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-primary dark:text-white mb-2">Software Setup</h4>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Complete software installation and optimization</p>
+                        <p class="text-2xl font-bold text-primary dark:text-white mb-4">From ₦79000</p>
+                        <button class="w-full bg-primary hover:bg-purple-700 text-white py-2 rounded-lg transition-colors duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center text-primary dark:text-white mb-12">What Our Customers Say</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">"Excellent service! They fixed my laptop in just 2 days and it's running better than ever. Highly recommend IZIAQ-TECH!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                            S
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-primary dark:text-white">Sarah Johnson</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">"Built my dream gaming PC at an amazing price. The team's expertise and customer service are outstanding!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                            M
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-primary dark:text-white">Mike Wale</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Gamer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">"Professional, fast, and reliable. They saved my business data when my computer crashed. Forever grateful!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-primary dark:text-white">Amanda Oluawsegun</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock%}

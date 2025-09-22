@@ -1,0 +1,550 @@
+    {%extends 'HEADER_TAIL.html'%}
+{% block content%}
+{% load static %}
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-purple-800 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl lg:text-6xl font-bold text-white mb-6">Expert Tech Services</h1>
+            <p class="text-xl text-accent mb-8 max-w-3xl mx-auto">From quick repairs to complete system overhauls, our certified technicians provide professional solutions for all your technology needs.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <button class="bg-white text-primary hover:bg-accent px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-calendar-alt mr-2"></i>Schedule Service
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-primary dark:text-white mb-12">Our Services</h2>
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Hardware Repair -->
+                <div class="bg-accent dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary dark:text-white mb-4">Hardware Repair</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">Professional diagnosis and repair of all computer hardware components including motherboards, CPUs, GPUs, and more.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Motherboard repair
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Graphics card repair
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Power supply replacement
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Screen repair & replacement
+                        </li>
+                    </ul>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-primary dark:text-white">From $49</span>
+                        <button class="bg-primary hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Software Services -->
+                <div class="bg-accent dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary dark:text-white mb-4">Software Solutions</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">Complete software installation, optimization, and troubleshooting services to keep your systems running smoothly.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>OS installation & setup
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Software optimization
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Virus removal
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Driver updates
+                        </li>
+                    </ul>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-primary dark:text-white">From $79</span>
+                        <button class="bg-primary hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom Builds -->
+                <div class="bg-accent dark:bg-gray-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary dark:text-white mb-4">Custom PC Builds</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">Professional custom computer assembly tailored to your specific needs, from gaming rigs to workstations.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Gaming PC builds
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Workstation assembly
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Component consulting
+                        </li>
+                        <li class="flex items-center text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-check text-green-500 mr-2"></i>Performance optimization
+                        </li>
+                    </ul>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-primary dark:text-white">From $149</span>
+                        <button class="bg-primary hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Data Recovery -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-purple-700 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-primary dark:text-white mb-2">Data Recovery</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Professional data recovery from damaged drives and corrupted files.</p>
+                    <p class="text-lg font-bold text-primary dark:text-white">From $99</p>
+                </div>
+
+                <!-- Network Setup -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-gradient-to-br from-secondary to-gray-400 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-network-wired text-primary text-xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-primary dark:text-white mb-2">Network Setup</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Home and office network configuration and troubleshooting.</p>
+                    <p class="text-lg font-bold text-primary dark:text-white">From $129</p>
+                </div>
+
+                <!-- Maintenance -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-gradient-to-br from-accent to-purple-300 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-broom text-primary text-xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-primary dark:text-white mb-2">PC Maintenance</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Regular cleaning, updates, and performance optimization.</p>
+                    <p class="text-lg font-bold text-primary dark:text-white">From $59</p>
+                </div>
+
+                <!-- Consultation -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-purple-800 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-user-tie text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-lg font-semibold text-primary dark:text-white mb-2">Tech Consultation</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Expert advice on hardware upgrades and technology decisions.</p>
+                    <p class="text-lg font-bold text-primary dark:text-white">From $39</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-primary dark:text-white mb-12">How Our Service Process Works</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">Contact Us</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Call, email, or visit us to describe your tech issue or service needs.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">Diagnosis</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Our experts perform a thorough diagnosis and provide a detailed quote.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">Repair</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Once approved, we begin the repair or service work with regular updates.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">Delivery</h3>
+                    <p class="text-gray-600 dark:text-gray-400">We test everything thoroughly and deliver your device back to you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Request Form -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-primary dark:text-white mb-4">Request a Service</h2>
+                <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Fill out the form below and we'll get back to you within 24 hours</p>
+                
+                <div class="bg-accent dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                    <form id="service-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">First Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Last Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Email Address *</label>
+                                <input type="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Service Type *</label>
+                                <select required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                    <option value="">Select a service</option>
+                                    <option value="hardware-repair">Hardware Repair</option>
+                                    <option value="software-solutions">Software Solutions</option>
+                                    <option value="custom-build">Custom PC Build</option>
+                                    <option value="data-recovery">Data Recovery</option>
+                                    <option value="network-setup">Network Setup</option>
+                                    <option value="maintenance">PC Maintenance</option>
+                                    <option value="consultation">Tech Consultation</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Urgency Level</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                    <option value="standard">Standard (3-5 days)</option>
+                                    <option value="priority">Priority (1-2 days)</option>
+                                    <option value="emergency">Emergency (Same day)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Device/Issue Description *</label>
+                            <textarea required rows="4" placeholder="Please describe your device model and the issue you're experiencing..." class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base resize-none"></textarea>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Preferred Contact Method</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="contact-method" value="email" class="text-primary focus:ring-primary" checked>
+                                        <span class="ml-2 text-gray-700 dark:text-gray-300">Email</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="contact-method" value="phone" class="text-primary focus:ring-primary">
+                                        <span class="ml-2 text-gray-700 dark:text-gray-300">Phone</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Service Location</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="service-location" value="drop-off" class="text-primary focus:ring-primary" checked>
+                                        <span class="ml-2 text-gray-700 dark:text-gray-300">Drop-off at store</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="service-location" value="pickup" class="text-primary focus:ring-primary">
+                                        <span class="ml-2 text-gray-700 dark:text-gray-300">Pickup service (+$25)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="service-location" value="on-site" class="text-primary focus:ring-primary">
+                                        <span class="ml-2 text-gray-700 dark:text-gray-300">On-site service (+$50)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" required class="rounded text-primary focus:ring-primary">
+                            <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></span>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary hover:bg-purple-700 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>Submit Service Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-primary dark:text-white mb-4">Service Packages</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12">Choose the package that best fits your needs</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Package -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-secondary to-gray-400 p-6 text-center">
+                        <h3 class="text-2xl font-bold text-primary mb-2">Basic Service</h3>
+                        <p class="text-gray-700">Essential repairs and maintenance</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary dark:text-white">$89</span>
+                            <span class="text-gray-600 dark:text-gray-400">/service</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Basic diagnosis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Software troubleshooting</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Virus removal</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">System cleanup</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">30-day warranty</span>
+                            </li>
+                        </ul>
+                        <button class="w-full border-2 border-primary text-primary hover:bg-primary hover:text-white py-3 rounded-lg font-semibold transition-colors">
+                            Choose Basic
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 text-sm font-semibold rounded-bl-lg">
+                        Popular
+                    </div>
+                    <div class="bg-gradient-to-r from-primary to-purple-700 p-6 text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Premium Service</h3>
+                        <p class="text-accent">Comprehensive tech solutions</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary dark:text-white">$149</span>
+                            <span class="text-gray-600 dark:text-gray-400">/service</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Advanced diagnosis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Hardware & software repair</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Data backup & recovery</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Performance optimization</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">90-day warranty</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-primary hover:bg-purple-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Choose Premium
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Professional Package -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-accent to-purple-300 p-6 text-center">
+                        <h3 class="text-2xl font-bold text-primary mb-2">Professional Service</h3>
+                        <p class="text-gray-700">Enterprise-level support</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-6">
+                            <span class="text-4xl font-bold text-primary dark:text-white">$249</span>
+                            <span class="text-gray-600 dark:text-gray-400">/service</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Complete system analysis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Priority service</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">On-site support available</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Custom configuration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">1-year warranty</span>
+                            </li>
+                        </ul>
+                        <button class="w-full border-2 border-primary text-primary hover:bg-primary hover:text-white py-3 rounded-lg font-semibold transition-colors">
+                            Choose Professional
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Testimonials -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-primary dark:text-white mb-12">What Our Service Customers Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">"My laptop was completely dead, but IZIAQ-TECH brought it back to life! Their data recovery service saved all my important files. Exceptional service!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                            J
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-primary dark:text-white">Jennifer Liu</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">"They built me the perfect gaming PC within my budget. The performance is incredible and the cable management is pristine. Highly recommend!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                            D
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-primary dark:text-white">David Thompson</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Gamer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-accent dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">"Fast, professional, and honest. They diagnosed the issue quickly and gave me a fair quote. My business computer is running like new again!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                            R
+                        </div>
+                        <div class="ml-4">
+                            <p class="font-semibold text-primary dark:text-white">Robert Martinez</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Small Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-16 bg-primary">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-8">Ready to Get Started?</h2>
+            <p class="text-xl text-accent mb-8">Contact us today for a free consultation and estimate</p>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Call Us</h3>
+                    <p class="text-accent">+1 (555) 123-TECH</p>
+                    <p class="text-accent text-sm">Mon-Fri: 9AM-6PM</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Email Us</h3>
+                    <p class="text-accent">service@iziaq-tech.com</p>
+                    <p class="text-accent text-sm">24/7 response time</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Visit Us</h3>
+                    <p class="text-accent">123 Tech Street</p>
+                    <p class="text-accent text-sm">Innovation City</p>
+                </div>
+            </div>
+            <button class="bg-white text-primary hover:bg-accent px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-calendar-alt mr-2"></i>Schedule Your Service Now
+            </button>
+        </div>
+    </section>
+<script src="{%static 'service.js'%}"></script>
+    {% endblock %}

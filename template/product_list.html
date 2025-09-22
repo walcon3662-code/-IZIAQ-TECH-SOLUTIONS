@@ -1,0 +1,227 @@
+{%extends 'HEADER_TAIL.html'%}
+{% block content%}
+{% load static %}
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-primary to-purple-800 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold text-white mb-4">Our Products</h1>
+            <p class="text-xl text-accent">Discover cutting-edge technology solutions for every need</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Sidebar Filters -->
+                <div class="lg:w-1/4">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 sticky top-24">
+                        <!-- Search Bar -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Search Products</label>
+                            <div class="relative">
+                                <input type="text" id="search-input" placeholder="Search..." class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Categories</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="category-filter rounded text-primary focus:ring-primary" value="all" checked>
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">All Products</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="category-filter rounded text-primary focus:ring-primary" value="laptops">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Laptops</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="category-filter rounded text-primary focus:ring-primary" value="desktops">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Desktop PCs</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="category-filter rounded text-primary focus:ring-primary" value="components">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Components</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="category-filter rounded text-primary focus:ring-primary" value="accessories">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Accessories</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="category-filter rounded text-primary focus:ring-primary" value="peripherals">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Peripherals</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Price Range</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="price" class="text-primary focus:ring-primary" value="all" checked>
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">All Prices</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="price" class="text-primary focus:ring-primary" value="0-500">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">₦0 0- ₦5000</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="price" class="text-primary focus:ring-primary" value="500-1000">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">₦5000 - ₦1,0000</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="price" class="text-primary focus:ring-primary" value="1000-2000">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">₦1,0000 - ₦2,0000</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="price" class="text-primary focus:ring-primary" value="2000+">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">₦2,0000+</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Brand Filter -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Brands</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="brand-filter rounded text-primary focus:ring-primary" value="asus">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">ASUS</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="brand-filter rounded text-primary focus:ring-primary" value="msi">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">MSI</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="brand-filter rounded text-primary focus:ring-primary" value="intel">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">Intel</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="brand-filter rounded text-primary focus:ring-primary" value="amd">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">AMD</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="brand-filter rounded text-primary focus:ring-primary" value="nvidia">
+                                    <span class="ml-2 text-gray-700 dark:text-gray-300">NVIDIA</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button id="clear-filters" class="w-full bg-secondary hover:bg-gray-400 text-primary font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+                            Clear Filters
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="lg:w-3/4">
+                    <!-- Sort and Results Info -->
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <div class="mb-4 md:mb-0">
+    <span id="results-count" class="text-gray-600 dark:text-gray-400">
+        Showing {{ page_obj|length }} of {{ page_obj.paginator.count }} products
+    </span>
+</div>
+
+                        <div class="flex items-center space-x-4">
+                            <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Sort by:</label>
+                            <select id="sort-select" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-base">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest First</option>
+                                <option value="rating">Highest Rated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
+                        
+                        {%for product in page_obj%}
+                         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-48 bg-gradient-to-br from-primary to-purple-700 flex items-center justify-center relative">
+                        <img src="{{product.image.url}}">
+                        
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">{{product.name}}</h3>
+                        <div class="flex items-center mb-3">
+                            <div class="flex space-x-1 mr-2">
+                               
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400"></span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-primary dark:text-white">₦{{product.price}}</span>
+                            <span class="text-sm text-green-600 dark:text-green-400 font-medium">In Stock</span>
+                        </div>
+                        <a href="{% url 'add_to_cart' product.id %}" class="w-full bg-primary hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+                        </a>
+
+
+                    </div>
+                </div>
+                        {%endfor%}
+                    </div>
+
+                    <!-- Pagination -->
+                
+
+                    <div class="flex justify-center items-center space-x-2">
+
+    {# Previous button #}
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"
+           class="px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+    {% else %}
+        <span class="px-3 py-2 text-gray-400 cursor-not-allowed">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+    {% endif %}
+
+    {# Page numbers #}
+    {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number %}
+            <span class="px-3 py-2 bg-primary text-white rounded">{{ num }}</span>
+        {% elif num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+            <a href="?page={{ num }}"
+               class="px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                {{ num }}
+            </a>
+        {% elif num == 1 or num == page_obj.paginator.num_pages %}
+            <a href="?page={{ num }}"
+               class="px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                {{ num }}
+            </a>
+        {% elif num == page_obj.number|add:'-3' or num == page_obj.number|add:'3' %}
+            <span class="px-3 py-2 text-gray-500 dark:text-gray-400">...</span>
+        {% endif %}
+    {% endfor %}
+
+    {# Next button #}
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"
+           class="px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    {% else %}
+        <span class="px-3 py-2 text-gray-400 cursor-not-allowed">
+            <i class="fas fa-chevron-right"></i>
+        </span>
+    {% endif %}
+
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+<!--script src="{%static 'products.js'%}"></script-->
+{% endblock%}
